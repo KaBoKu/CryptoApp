@@ -1,0 +1,1 @@
+Simple application to encrypt and decrypt using AES cipher.
