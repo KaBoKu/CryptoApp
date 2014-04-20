@@ -19,10 +19,10 @@ public class AES {
 	private static String algorithm = "AES";
 
 	// Performs Encryption
-	public static void encrypt(String filePlain,String pass,String fileEncrypt) throws Exception {
-		FileInputStream fis = new FileInputStream("0.jpg");
-		FileOutputStream fos = new FileOutputStream("encrypted.jpg");
-		Key key = generateKey("squirrel123alamasquirrel123alama".toCharArray());
+	public static void encrypt(String filePlain,char [] pass,String fileEncrypt) throws Exception {
+		FileInputStream fis = new FileInputStream(filePlain);
+		FileOutputStream fos = new FileOutputStream(fileEncrypt);
+		Key key = generateKey(pass);//"squirrel123alamasquirrel123alama".toCharArray());
 		pass = null;
 		Cipher chiper = Cipher.getInstance(algorithm);
 		chiper.init(Cipher.ENCRYPT_MODE, key);
@@ -31,10 +31,10 @@ public class AES {
 	}
 
 	// Performs decryption
-	public static void decrypt(String fileEncrypt,String pass,String fileDecrypt) throws Exception {
-		FileInputStream fis2 = new FileInputStream("encrypted.jpg");
-		FileOutputStream fos2 = new FileOutputStream("decrypted.jpg");
-		Key key = generateKey("squirrel123alamasquirrel123alama".toCharArray());
+	public static void decrypt(String fileEncrypt,char [] pass,String fileDecrypt) throws Exception {
+		FileInputStream fis2 = new FileInputStream(fileEncrypt);
+		FileOutputStream fos2 = new FileOutputStream(fileDecrypt);
+		Key key = generateKey(pass);//"squirrel123alamasquirrel123alama".toCharArray());
 		pass = null;
 		Cipher chiper = Cipher.getInstance(algorithm);
 		chiper.init(Cipher.DECRYPT_MODE, key);
@@ -55,8 +55,8 @@ public class AES {
 	public static void main(String[] args) throws Exception {
 
 		String plainText = "Password";
-		encrypt(plainText,"as","asd");
-		decrypt("asas","ASd","asfdsa");
+		encrypt("0.jpg","squirrel123alamasquirrel123alama".toCharArray(),"asd.sasa");
+		decrypt("asd.sasa","squirrel123alamasquirrel123alama".toCharArray(),"ds.jpg");
 	
 	}
 	
